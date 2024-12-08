@@ -1,0 +1,3 @@
+.contingut tr:nth-child(even) {
+  background-color: #e62c2c;
+}
