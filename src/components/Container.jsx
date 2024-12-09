@@ -57,7 +57,8 @@ export function Container(){
           nouComponent.vram = parseInt(prompt("VRAM del component:"));
           nouComponent.frecuencia = parseFloat(prompt("Frecuencia del component:"));
         }
-        setComponents(prevComponents => [...prevComponents, nouComponent]);
+        components.push(nouComponent);
+        setComponents([...components]);
       }
       
       function eliminarOrdenacio() {
@@ -65,19 +66,21 @@ export function Container(){
       }
 
       function ordenarComponents(criterio) {
+        
+        
         const componentsOrdenats = [...llista].sort((a, b) => {
             switch (criterio) {
-                case 'Nucleos':
+                case header[5]:
                     return a.nucleos - b.nucleos;
-                case 'Precio':
+                case header[1]:
                     return a.precio - b.precio;
-                case 'Stock':
+                case header[2]:
                     return a.stock - b.stock;
-                case 'Categoría':
+                case header[3]:
                     return a.categoria.localeCompare(b.categoria);
-                case 'Marca':
+                case header[4]:
                     return a.marca.localeCompare(b.marca);
-                case 'Nombre':
+                case header[0]:
                     return a.nombre.localeCompare(b.nombre);
                 default:
                     return 0;
